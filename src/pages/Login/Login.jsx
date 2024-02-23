@@ -129,7 +129,9 @@ const Login = () => {
       <span className="divider"></span>
       <div className="registerForm">
         <h3>Don't have an account?</h3>
-        <button className="registerButton">SIGN UP HERE</button>
+        <Link to={"/register"}>
+          <button className="registerButton">SIGN UP HERE</button>
+        </Link>
       </div>
     </div>
   );
