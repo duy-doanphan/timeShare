@@ -1,0 +1,63 @@
+h1 {
+  margin: 0;
+}
+
+section.footer {
+  background-color: #d4cbbf;
+  margin-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+#root > section.footer > div > div.footerCard.flex > div.footerIntro.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+#root > section.footer > div > div > div.footerIntro.flex > div.logoDiv > a {
+  text-decoration: none;
+  color: #972417;
+  font-size: 20px;
+}
+
+#root > section.footer > div > div > div.footerIntro.flex > div.logoDiv > a h1 {
+  display: flex;
+  align-items: center;
+}
+
+#root
+  > section.footer
+  > div
+  > div
+  > div.footerIntro.flex
+  > div.footerSocials.flex.aos-init.aos-animate
+  svg {
+  font-size: 27px;
+  margin-left: 1rem;
+}
+
+.footerIntro.flex {
+  padding: 2.5rem 6.5rem 0;
+}
+
+.footerLinks.grid {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 6.5rem;
+  margin: 2.5rem 0;
+}
+
+.linkGroup.aos-init.aos-animate .groupTitle {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.8rem;
+}
+.linkGroup.aos-init.aos-animate li {
+  color: #555;
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1.8rem;
+}
+
+.linkGroup.aos-init.aos-animate li {
+  list-style: none;
+}

@@ -1,0 +1,225 @@
+/* .container:has(.forgot-password) {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100vh;
+  background: url("https://i.pinimg.com/originals/2c/84/5a/2c845a66b8ad2a8aafd288bdc16cd459.jpg")
+    center center / cover;
+  padding-bottom: 30px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.text {
+  color: #4c00b4;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.underline {
+  width: 61px;
+  height: 6px;
+  background: #4c00b4;
+  border-radius: 9px;
+}
+
+.inputs {
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.inputLogin {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 480px;
+  height: 80px;
+  background: #eaeaea;
+  border-radius: 6px;
+}
+
+.inputLogin img {
+  margin: 0px 30px;
+}
+
+.inputLogin input {
+  height: 50px;
+  width: 400px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #797979;
+  font-size: 19px;
+}
+
+.forgot-password {
+  padding-left: 62px;
+  margin-top: 27px;
+  color: #797979;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forgot-password span {
+  color: #4c00b4;
+  cursor: pointer;
+}
+
+.submit-container {
+  display: flex;
+  gap: 30px;
+  margin: 60px auto;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 59px;
+  color: #fff;
+  background: #4c00b4;
+  border-radius: 50px;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+} */
+
+.loginForm {
+  box-shadow: 0 0.0714285714rem 0.2142857143rem 0 rgba(0, 0, 0, 0.2);
+  background: #fff;
+  padding: 1.25rem;
+  display: flex;
+  width: 80%;
+  margin: 2% auto 0;
+}
+
+.flexForm {
+  width: 40%;
+}
+
+.loginForm form {
+  width: 100%;
+}
+
+.loginForm .textField {
+  display: flex;
+  flex-direction: column;
+  margin: 0.6rem 0;
+}
+.loginForm .textField input {
+  height: 1.8rem;
+  max-width: 100%;
+}
+.loginForm .textField label {
+  margin-bottom: 0.3571428571rem;
+  font-size: 1.1rem;
+  color: #222;
+  line-height: 1.5;
+}
+
+.loginForm .flexAction {
+  display: flex;
+  justify-content: space-between;
+}
+
+.loginForm .flexAction label {
+  font-size: 1.1rem;
+}
+
+.loginForm .flexAction a {
+  color: #0091b3;
+  line-height: inherit;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.loginForm button {
+  box-shadow: 0 0.0714285714rem 0.2142857143rem 0 rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  transition-duration: 150ms;
+  border-style: solid;
+  border-width: 0;
+  cursor: pointer;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.0714285714rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.8571428571rem 1.7142857143rem 0.9285714286rem 1.7142857143rem;
+  font-size: 0.8571428571rem;
+  background-color: #0091b3;
+  border-color: #00748f;
+  color: #fff !important;
+  transition: background-color 300ms ease-out;
+  margin-top: 1rem;
+}
+
+.divider {
+  border-left: 0.0714285714rem solid #cfcfcf;
+  margin-left: 1.25rem;
+}
+
+.loginForm h1 {
+  margin-bottom: 2%;
+  font-size: 2.4rem;
+}
+
+.registerForm {
+  text-align: center;
+  width: 60%;
+  padding-top: 7rem;
+}
+
+.registerForm h3 {
+  font-size: 2rem;
+}
+
+.loginForm button.registerButton {
+  background-color: #f44336;
+  border-color: #e21b0c;
+  color: #fff !important;
+  padding: 1.2857142857rem 2.5714285714rem 1.3571428571rem 2.5714285714rem;
+  font-size: 1.1428571429rem;
+  margin-top: 0.2rem;
+}
+.socialNetwork {
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialNetwork button {
+  width: 48%;
+  display: flex;
+  align-items: center;
+}
+.socialNetwork button svg {
+  font-size: 1.4rem;
+  margin-right: 0.3571428571rem;
+}
+
+.socialNetwork button.fbButton {
+  background-color: #3b5998;
+}
+
+.socialNetwork button.ggButton {
+  background-color: #d34836;
+}
+.dividerSocial {
+  border-bottom: 0.0714285714rem solid #cfcfcf;
+  margin: 0.8rem 0;
+}

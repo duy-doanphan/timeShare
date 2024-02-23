@@ -1,0 +1,235 @@
+#root > section.home > div.homeContent.container {
+  background-image: url("https://images.alphacoders.com/269/269623.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* height: 24rem; */
+  margin-bottom: -4.4rem;
+  padding-top: calc(24rem / 2);
+}
+
+#root > section.home > div.homeContent.container > div.textDiv > h1 {
+  text-align: center;
+  color: #fff;
+}
+
+/* element in banner */
+#root > section.home > div.homeContent.container > div {
+  padding-bottom: 3.2142857143rem;
+  background: rgba(1, 1, 1, 0.6);
+  height: 12rem;
+  max-height: 12rem;
+}
+
+.hero-image_quote {
+  margin: 0 auto;
+  max-width: 62.5rem;
+  display: table;
+}
+
+.hero-image_quote-photo {
+  display: table-cell;
+  float: none !important;
+  vertical-align: middle;
+  box-shadow: 0 0.0714285714rem 0.2142857143rem 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  display: inline-table;
+  margin: 0;
+  padding: 0.4285714286rem;
+  position: relative;
+  -webkit-margin-after: 0;
+  -webkit-margin-before: 0;
+  -webkit-transform: rotate(-2.5deg);
+  -ms-transform: rotate(-2.5deg);
+  -o-transform: rotate(-2.5deg);
+  transform: rotate(-2.5deg);
+  width: 16.6666666667%;
+  left: 66.6666666667%;
+  right: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-image_quote-photo,
+.hero-image_quote-text,
+.hero-image_quote-author-container {
+  display: table-cell;
+  float: none !important;
+  vertical-align: middle;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  width: 16.6666666667%;
+}
+
+.hero-image_quote-photo:before {
+  bottom: -1.0714285714rem;
+  left: -0.3571428571rem;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.hero-image_quote-photo img {
+  display: block;
+  width: 100%;
+}
+
+.hero-image_quote-photo:after {
+  background-position: -100px -150px;
+  top: -1.0714285714rem;
+  right: -0.3571428571rem;
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.hero-image_quote-photo:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid #b19e81;
+  z-index: 1;
+}
+
+.hero-image_quote-text {
+  position: relative;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  width: 66.6666666667%;
+  right: 16.6666666667%;
+  left: auto;
+  float: left;
+  font-style: italic;
+  border-left: 0;
+  margin-top: 1.25rem;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #fff;
+  display: table-cell;
+  float: none !important;
+  vertical-align: middle;
+}
+
+.hero-image .hero-image_quote-author-container {
+  display: table-cell;
+  float: none !important;
+  vertical-align: middle;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  width: 16.6666666667%;
+}
+
+.hero-image_quote-author {
+  font-weight: 200;
+  font-family: "Handlee", cursive;
+  line-height: 1em;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+.hero-image_quote-date {
+  color: #fff;
+}
+.hero-image_quote-date {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.hero-image_quote-photo:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid #b19e81;
+  z-index: 1;
+}
+
+/* searchbox */
+#root > section.home > div.searchBox {
+  box-shadow: 0 0.0714285714rem 0.2142857143rem 0 rgba(0, 0, 0, 0.2);
+  margin: 0 auto 1.5rem;
+  background: #fff;
+  padding: 1.0714285714rem;
+  position: relative;
+  max-width: 70rem;
+}
+
+#root > section.home > div.searchBox > div.cardDiv.grid.aos-init.aos-animate {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* item in searchbox */
+#root
+  > section.home
+  > div.searchBox
+  > div.cardDiv.grid.aos-init.aos-animate
+  > div.Price
+  > div.label_total.flex {
+  display: flex;
+  align-items: center;
+}
+
+.homeFooterIcons.flex {
+  display: none;
+}
+
+/* action button  */
+.buttonFilterAction {
+  background-color: #0091b3;
+  border-color: #00748f;
+  color: #fff !important;
+  text-align: center;
+  text-decoration: none;
+  width: 16.7%;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 0;
+  cursor: pointer;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.destinationInput,
+.dateInput,
+.Price {
+  width: 28%;
+}
+
+#root
+  > section.home
+  > div.searchBox
+  > div.cardDiv.grid.aos-init.aos-animate
+  > div.Price
+  > div.label_total.flex
+  > p {
+  margin: 0;
+}
+
+.searchBox input {
+  margin-top: 8px;
+  padding: 0 10px;
+}
+.searchBox label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.searchBox .input.flex input {
+  height: 40px;
+  font-size: 16px;
+  width: 250px;
+}

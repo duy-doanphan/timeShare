@@ -1,0 +1,169 @@
+#root > section.main.container.section > div.secTitle > h3 {
+  flex-grow: 1000;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 400;
+  color: rgb(34, 34, 34);
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+/* grid */
+.main .secContent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* item */
+.singleDestination {
+  width: 300px;
+  margin: 3% auto;
+  text-align: center;
+  box-shadow: 0 0.0714285714rem 0.2142857143rem 0 rgba(0, 0, 0, 0.2);
+  background: #fff;
+  padding: 20px 4px;
+  min-height: 24rem;
+  max-height: 320px;
+}
+
+/* image */
+.secContent .imageDiv img {
+  width: 280px;
+  height: 200px;
+}
+
+/* cardbody  */
+
+.cardInfo {
+  text-align: left;
+  padding: 0 10px;
+}
+
+.cardInfo .desc {
+  margin: 12px 0;
+}
+.continent.flex {
+    display: flex;
+}
+
+.cardInfo .desc p {
+  max-height: 80px;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  line-height: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.cardBody-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardInfo h1,
+.cardInfo h5,
+.cardInfo p {
+  margin: 0;
+}
+
+/* action relax and price */
+.grade span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* button  */
+.cardInfo .btn.flex {
+  background-color: #0091b3;
+  border-color: #00748f;
+  color: #fff !important;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 0;
+  cursor: pointer;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  padding: 8px;
+  width: 100%;
+}
+
+.fees.flex {
+  display: flex;
+}
+
+/* label  */
+.new-ribbon {
+  text-transform: uppercase;
+  position: absolute;
+  top: 1rem;
+  z-index: 1;
+  width: auto;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  white-space: nowrap;
+  height: 2rem;
+  padding: 0 0.625rem;
+  background: #0091b3;
+  right: auto;
+  background: #f44336;
+  left: -0.5rem;
+}
+
+.new-ribbon.secondary:before {
+  border-color: #ba160a #ba160a transparent transparent;
+}
+
+.new-ribbon:before {
+  right: auto;
+  left: 0;
+}
+
+.new-ribbon:before {
+  bottom: -0.5rem;
+  border: 0.25rem solid transparent;
+}
+
+.new-ribbon:before,
+.new-ribbon:after {
+  position: absolute;
+  content: "";
+}
+
+.new-ribbon:after {
+  border-width: 1rem 0.5rem;
+}
+
+.new-ribbon:after {
+  -webkit-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -moz-transform: scale(0.9999);
+  top: 0;
+  border: 1rem solid transparent;
+}
+
+@media only screen and (max-width: 1550px) {
+  .main .secContent {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .main .secContent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

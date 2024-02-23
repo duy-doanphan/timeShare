@@ -1,0 +1,184 @@
+.profilePage {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  margin: 0 auto;
+  margin: 2% 0;
+}
+
+.rightProfilePage {
+  width: 75%;
+  max-width: 51.25rem;
+  padding: 1.25rem;
+  border: 0.0714285714rem solid #e6e6e6;
+}
+
+.profilePage h1 {
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.flexProfile {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+
+.cardProfile {
+  background: #fafaf9;
+  border: 0.0714285714rem solid #e6e6e6;
+  margin-bottom: 1.25rem;
+  padding: 0.6rem 1.25rem;
+}
+.profileLeft {
+  width: 52%;
+}
+
+.profileRight {
+  width: 44%;
+}
+
+.inputProfile {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.7142857143rem;
+}
+
+.inputProfile label {
+  margin-bottom: 0.3571428571rem;
+  font-size: 1.1rem;
+  color: #222;
+  line-height: 1.5;
+}
+
+.inputProfile input {
+  max-width: 100%;
+  height: 1.6rem;
+}
+
+.radioGroup {
+  display: flex;
+  margin-bottom: 0.7142857143rem;
+}
+
+.radioGroup label {
+  cursor: pointer;
+  display: block;
+  font-size: 1.125rem;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-right: 0.7142857143rem;
+}
+
+.radioGroup input {
+  margin-left: 0;
+}
+
+.profileActionButton {
+  box-shadow: 0 0.0714285714rem 0.2142857143rem 0 rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  transition-duration: 150ms;
+  border-style: solid;
+  border-width: 0;
+  cursor: pointer;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.0714285714rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.8571428571rem 1.7142857143rem 0.9285714286rem 1.7142857143rem;
+  font-size: 0.8571428571rem;
+  background-color: #0091b3;
+  border-color: #00748f;
+  color: #fff !important;
+  transition: background-color 300ms ease-out;
+  margin-top: 1rem;
+}
+
+.sizeSM {
+  margin-top: 0;
+  padding: 0.3571428571rem 0.7142857143rem 0.4285714286rem 0.7142857143rem;
+  font-size: 0.6428571429rem;
+}
+
+.cardProfile > p:nth-child(1) {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+  text-rendering: optimizeLegibility;
+}
+.cardProfile > p:nth-child(2) {
+  margin-top: 0;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+.profilePage .avatar {
+  width: 100%;
+  max-width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.cardProfile .flex {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* sidebar */
+
+.leftProfilePage {
+  width: 20%;
+  margin-right: 1%;
+}
+
+.leftProfilePage .sidebar-list {
+  border: 0.0714285714rem solid #e6e6e6;
+}
+
+.sidebar-item {
+  padding: 1rem;
+  font-size: 1.1rem;
+  color: #222;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-item svg {
+  font-size: 1.2rem;
+  width: 2.5rem;
+  text-align: center;
+}
+
+.sidebar-item.active {
+  font-weight: bold;
+  background-color: #f2f0ed;
+  border-left: 0.2142857143rem solid #0091b3;
+}
+
+.sidebar-item:hover {
+  background-color: #f2f0ed;
+  border-left: 0.2142857143rem solid #0091b3;
+}
+
+#root > div > div.leftProfilePage > div.cardProfile > div > p {
+  font-size: 1.1rem;
+  margin: 0;
+}
