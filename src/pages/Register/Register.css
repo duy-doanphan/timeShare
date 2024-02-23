@@ -1,0 +1,129 @@
+.registersform {
+    box-shadow: 0 0.0714285714rem 0.2142857143rem 0 rgba(0, 0, 0, 0.2);
+    background: #fff;
+    padding: 1.25rem;
+    display: flex;
+    width: 80%;
+    margin: 2% auto 0;
+  }
+  
+  .flexsForm {
+    width: 60%;
+  }
+  .error{
+    color: red;
+  }
+  .registersform form {
+    width: 100%;
+  }
+  
+  .registersform .textField {
+    display: flex;
+    flex-direction: column;
+    margin: 0.6rem 0;
+  }
+  .registersform .textField input {
+    height: 1.8rem;
+    max-width: 100%;
+  }
+  .registersform .textField label {
+    margin-bottom: 0.3571428571rem;
+    font-size: 1.1rem;
+    color: #222;
+    line-height: 1.5;
+  }
+  
+  .registersform .flexAction {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .registersform .flexAction label {
+    font-size: 1.1rem;
+  }
+  
+  .registersform .flexAction a {
+    color: #0091b3;
+    line-height: inherit;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  
+  .registersform button {
+    box-shadow: 0 0.0714285714rem 0.2142857143rem 0 rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    transition-duration: 150ms;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0 0 1.0714285714rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.8571428571rem 1.7142857143rem 0.9285714286rem 1.7142857143rem;
+    font-size: 0.8571428571rem;
+    background-color: #0091b3;
+    border-color: #00748f;
+    color: #fff !important;
+    transition: background-color 300ms ease-out;
+    margin-top: 1rem;
+  }
+  
+  .divider {
+    border-left: 0.0714285714rem solid #cfcfcf;
+    margin-left: 1.25rem;
+  }
+  
+  .registersform h1 {
+    margin-bottom: 2%;
+    font-size: 2.4rem;
+  }
+  
+  .loginsForm {
+    text-align: center;
+    width: 60%;
+    padding-top: 7rem;
+  }
+  
+  .loginsForm h3 {
+    font-size: 2rem;
+  }
+  
+  .registersform button.registerButton {
+    background-color: #f44336;
+    border-color: #e21b0c;
+    color: #fff !important;
+    padding: 1.2857142857rem 2.5714285714rem 1.3571428571rem 2.5714285714rem;
+    font-size: 1.1428571429rem;
+    margin-top: 0.2rem;
+  }
+  .socialNetwork {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .socialNetwork button {
+    width: 48%;
+    display: flex;
+    align-items: center;
+  }
+  .socialNetwork button svg {
+    font-size: 1.4rem;
+    margin-right: 0.3571428571rem;
+  }
+  
+  .socialNetwork button.fbButton {
+    background-color: #3b5998;
+  }
+  
+  .socialNetwork button.ggButton {
+    background-color: #d34836;
+  }
+  .dividerSocial {
+    border-bottom: 0.0714285714rem solid #cfcfcf;
+    margin: 0.8rem 0;
+  }
