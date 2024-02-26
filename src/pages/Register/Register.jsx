@@ -1,28 +1,38 @@
 import { useContext, useEffect, useState } from "react";
 import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
-import { GlobalContext } from "../../provide";
+import axios from "axios";
 
 const Register = () => {
   const navigation = useNavigate();
   const [data, setData] = useState({
-    username: "",
-    password: "",
-    email: "",
     name: "",
+    username: "",
+    email: "",
+    password: "",
     phoneNumber: "",
   });
   const [errors, setErrors] = useState({});
-  const loginContext = useContext(GlobalContext);
-  const { setIsLogin, setUserInformation, isLogin } = loginContext;
 
   const handleRegisterFunction = async (e) => {
     e.preventDefault();
     try {
       if (validateForm()) {
-        alert("Đăng ký thành công");
-        // Điều hướng tới trang chính sau khi đăng ký thành công
-        navigation("/");
+        const requestLoginFunction = await axios.post('/Auth/register', data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        if (
+          requestLoginFunction.status == 200 &&
+          requestLoginFunction.data.isSucceed &&
+          requestLoginFunction.data.message != "User created successfully"
+        ) {
+          alert("Đăng ký thành công");
+          navigation("/");
+        } else {
+          alert("Register failed");
+        }        
       }
     } catch (err) {
       console.error(err);
@@ -61,12 +71,6 @@ const Register = () => {
     setErrors(errors);
     return formIsValid;
   };
-
-  useEffect(() => {
-    if (isLogin) {
-      navigation("/");
-    }
-  }, [isLogin]);
 
   return (
     <div className={"registersform"}>

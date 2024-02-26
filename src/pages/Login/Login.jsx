@@ -27,7 +27,7 @@ const Login = () => {
           email: requestGoogle?.data?.email,
           password: "",
         };
-        const requestLoginFunction = await axios.post("/login", payload);
+        const requestLoginFunction = await axios.post("/Auth/login", payload);
         if (
           requestLoginFunction.status == 200 &&
           requestLoginFunction.data.isSucceed &&
