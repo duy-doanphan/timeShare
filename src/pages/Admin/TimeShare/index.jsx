@@ -1,79 +1,39 @@
-import {DeleteOutlined, EditOutlined, PlusOutlined} from '@ant-design/icons'
-import {Button, Popconfirm, Space, message, notification, Tag} from 'antd'
-import {useState, useRef} from 'react'
-import dayjs from 'dayjs'
-import queryString from 'query-string'
-// import { useAppDispatch, useAppSelector } from '@/redux/hook.ts'
-// import ViewDetailUser from '@/components/admin/user/viewDetail'
+import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
+import { Button, Popconfirm, Space, message, Tag } from 'antd';
+import { useState, useRef, useEffect } from 'react';
+import dayjs from 'dayjs';
+import queryString from 'query-string';
 import ModalTimeShare from "../../../Components/Admin/TimeShares/Modal";
 import DataTable from "../../Share/dataTable";
 import ViewDetailTimeShare from "../../../Components/Admin/TimeShares/ViewDetail";
-
-const timeShares = [
-    {
-        id: 1,
-        name: "Beautiful Beachfront Villa",
-        address: "123 Ocean Avenue, Paradise City",
-        description: "A stunning villa with direct access to a private beach.",
-        rooms: 3,
-        status: "Available",
-        images: [
-            "https://picsum.photos/200/300",
-            "https://picsum.photos/200/300",
-        ],
-        place: "Dreamland",
-        createdAt: "2021-01-01T12:00:00Z",
-        updatedAt: "2021-01-01T12:00:00Z",
-    },
-    {
-        id: 2,
-        name: "Mountain Cabin Retreat",
-        address: "456 Pine Tree Lane, Serenity Valley",
-        description: "Cozy cabin nestled in the mountains, perfect for a retreat.",
-        rooms: 2,
-        status: "Booked",
-        images: [
-            "https://picsum.photos/200/300",
-            "https://picsum.photos/200/300",
-        ],
-        place: "Tranquiland",
-        createdAt: "2021-01-01T12:00:00Z",
-        updatedAt: "2021-01-01T12:00:00Z",
-    },
-]
+import axios from 'axios';
 
 const TimeSharePage = () => {
-    const [openModal, setOpenModal] = useState(false)
-    const [dataInit, setDataInit] = useState(null)
-    const [openViewDetail, setOpenViewDetail] = useState(false)
+    const [openModal, setOpenModal] = useState(false);
+    const [dataInit, setDataInit] = useState(null);
+    const [openViewDetail, setOpenViewDetail] = useState(false);
+    const [timeShares, setTimeShares] = useState(null);
 
-    const tableRef = useRef()
+    const tableRef = useRef();
 
-    // const isFetching = useAppSelector((state) => state.user.isFetching)
-    // const meta = useAppSelector((state) => state.user.meta)
-    // const users = useAppSelector((state) => state.user.result)
-    // const dispatch = useAppDispatch()
+    useEffect(() => {
+        axios.get(`/timeshare/GetAllTimeshare`)
+            .then((response) => {
+                setTimeShares(response.data.result);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }, []);
 
     const handleDeleteTimeShare = async (id) => {
-        message.success('Delete TimeShare successfully')
-        reloadTable()
-        // if (id) {
-        //     // const res = await callDeleteUser(id)
-        //     if (res && res.statusCode === 200) {
-        //         message.success('Delete user successfully')
-        //         reloadTable()
-        //     } else {
-        //         notification.error({
-        //             message: 'Has error',
-        //             // description: res.message
-        //         })
-        //     }
-        // }
-    }
+        message.success('Delete TimeShare successfully');
+        reloadTable();
+    };
 
     const reloadTable = () => {
-        tableRef?.current?.reload()
-    }
+        tableRef?.current?.reload();
+    };
 
     const columns = [
         {
@@ -82,110 +42,76 @@ const TimeSharePage = () => {
             width: 50,
             align: 'center',
             render: (text, record, index) => {
-                return <>{index + 1}</>
-                // return <>{index + 1 + (meta.current - 1) * meta.pageSize}</>
+                return <>{index + 1}</>;
             },
             hideInSearch: true
         },
         {
             title: 'Name',
-            dataIndex: 'name', // tên field trong data
-            sorter: true, // bật chế độ sort
-            ellipsis: true, // bật chế độ ẩn bớt
+            dataIndex: 'timeshareName',
+            sorter: true,
+            ellipsis: true,
             width: 350,
-            render: (text, record, index, action) => {
+            render: (text, record, index) => {
                 return (
                     <a
                         href='#'
                         onClick={() => {
-                            setOpenViewDetail(true)
-                            setDataInit(record)
+                            setOpenViewDetail(true);
+                            setDataInit(record);
                         }}
                     >
-                        {record.name}
+                        {record.timeshareName}
                     </a>
-                )
+                );
             }
         },
         {
             title: 'Address',
-            dataIndex: 'address', // tên field trong data
-            render: (text, record, index, action) => {
-                return <>{`${record.address}`}</>
+            dataIndex: 'address',
+            render: (text, record) => {
+                return <>{record.address}</>;
             },
             sorter: false,
-            hideInSearch: true // ẩn ô search
+            hideInSearch: true
         },
         {
             title: 'Place',
-            dataIndex: 'place', // tên field trong data
+            dataIndex: 'place',
             hideInSearch: true,
-            render: (text, record, index, action) => {
-                return <>{`${record.place}`}</>
+            render: (text, record) => {
+                return <>{record.place}</>;
             },
         },
         {
             title: 'Rooms',
-            dataIndex: 'room', // tên field trong data
-            // sorter: true, // bật chế độ sort
-            ellipsis: true, // bật chế độ ẩn bớt
+            dataIndex: 'rooms',
             width: 100,
             align: 'center',
-            hideInSearch: true,
-            render(dom, entity, index, action, schema) {
-                return <>{entity.rooms}</>
-            }
+            hideInSearch: true
         },
         {
             title: 'Status',
             width: 100,
             align: 'start',
-            dataIndex: 'status',
+            dataIndex: 'timeshareStatus',
             filterMultiple: false,
-            valueEnum: {
-                Available: {text: 'Available'},
-                Booked: {text: 'Booked'},
-            },
-
-            render(dom, entity, index, action, schema) {
+            render: (text, record) => {
                 const statusColorMap = {
-                    Available: 'success',
-                    Booked: 'error'
-                }
-                const status = entity.status
-                const color = statusColorMap[status] // tìm màu tương ứng
+                    'Available': 'success',
+                    'Booked': 'error'
+                };
+                const color = statusColorMap[record.timeshareStatus] || 'default';
                 return (
-                    <>
-                        <Tag color={color}>{entity.status}</Tag>
-                    </>
-                )
+                    <Tag color={color}>{record.timeshareStatus}</Tag>
+                );
             }
-        },
-        {
-            title: 'Created At',
-            dataIndex: 'createdAt',
-            width: 200,
-            sorter: true,
-            render: (text, record, index, action) => {
-                return <>{dayjs(record.createdAt).format('DD-MM-YYYY HH:mm:ss')}</>
-            },
-            hideInSearch: true
-        },
-        {
-            title: 'Updated At',
-            dataIndex: 'updatedAt',
-            width: 200,
-            sorter: true,
-            render: (text, record, index, action) => {
-                return <>{dayjs(record.updatedAt).format('DD-MM-YYYY HH:mm:ss')}</>
-            },
-            hideInSearch: true
         },
         {
             title: 'Actions',
             hideInSearch: true,
             width: 50,
-            render: (_value, entity, _index, _action) => (
+            render: (_value, record) => (
                 <Space>
                     <EditOutlined
                         style={{
@@ -193,81 +119,68 @@ const TimeSharePage = () => {
                             color: '#ffa500'
                         }}
                         onClick={() => {
-                            setOpenModal(true)
-                            setDataInit(entity)
+                            setOpenModal(true);
+                            setDataInit(record);
                         }}
                     />
-
                     <Popconfirm
                         placement='leftTop'
                         title={'Are you sure delete this TimeShare?'}
                         description={'Are you sure to delete this TimeShare?'}
-                        onConfirm={() => handleDeleteTimeShare(entity.id)}
+                        onConfirm={() => handleDeleteTimeShare(record.timeshareId)}
                         okText='Confirm'
                         cancelText='Cancel'
                     >
-            <span style={{cursor: 'pointer', margin: '0 10px'}}>
-              <DeleteOutlined
-                  style={{
-                      fontSize: 20,
-                      color: '#ff4d4f'
-                  }}
-              />
-            </span>
+                        <span style={{cursor: 'pointer', margin: '0 10px'}}>
+                            <DeleteOutlined
+                                style={{
+                                    fontSize: 20,
+                                    color: '#ff4d4f'
+                                }}
+                            />
+                        </span>
                     </Popconfirm>
                 </Space>
             )
         }
-    ]
+    ];
 
     const buildQuery = (params, sort, filtery) => {
-        const clone = {...params}
+        const clone = {...params};
 
-        // // Loại bỏ prop không có giá trị
         Object.keys(clone).forEach((key) => {
             if (!clone[key]) {
-                delete clone[key]
+                delete clone[key];
             }
-        })
+        });
 
-        let temp = queryString.stringify(clone)
+        let temp = queryString.stringify(clone);
 
-        //sort
-        let sortBy = ''
-        if (sort && sort.name) {
-            sortBy = sort.name === 'ascend' ? 'sortBy=name' : 'sortBy=-name'
+        let sortBy = '';
+        if (sort && sort.timeshareName) {
+            sortBy = sort.timeshareName === 'ascend' ? 'sortBy=timeshareName' : 'sortBy=-timeshareName';
         }
-        if (sort && sort.createdAt) {
-            sortBy =
-                sort.createdAt === 'ascend' ? 'sortBy=createdAt' : 'sortBy=-createdAt'
-        }
-        if (sort && sort.updatedAt) {
-            sortBy =
-                sort.updatedAt === 'ascend' ? 'sortBy=updatedAt' : 'sortBy=-updatedAt'
-        }
-        //
-        // //mặc định sort theo updatedAt
+
         if (Object.keys(sortBy).length === 0) {
-            temp = `${temp}&sortBy=-updatedAt`
+            temp = `${temp}&sortBy=-updatedAt`;
         } else {
-            temp = `${temp}&${sortBy}`
+            temp = `${temp}&${sortBy}`;
         }
 
-        return temp
-    }
+        return temp;
+    };
 
     return (
         <>
             <DataTable
                 actionRef={tableRef}
                 headerTitle='List TimeShare'
-                rowKey='id'
+                rowKey='timeshareId'
                 loading={false}
                 columns={columns}
                 dataSource={timeShares}
                 request={async (params, sort, filter) => {
-                    const query = buildQuery(params, sort, filter)
-                    // dispatch(fetchUser({ query }))
+                    const query = buildQuery(params, sort, filter);
                 }}
                 scroll={{x: true}}
                 pagination={{
@@ -275,32 +188,27 @@ const TimeSharePage = () => {
                     pageSize: 10,
                     showSizeChanger: true,
                     total: 1,
-                    // current: meta?.current ?? 1,
-                    // pageSize: meta?.pageSize ?? 10,
-                    // showSizeChanger: true,
-                    // total: meta?.total ?? 1,
                     showTotal: (total, range) => {
                         return (
                             <div>
                                 {' '}
                                 {range[0]}-{range[1]} on {total} rows
                             </div>
-                        )
+                        );
                     }
                 }}
-                // rowSelection={true}
                 toolBarRender={(_action, _rows) => {
                     return (
                         <Button
                             icon={<PlusOutlined/>}
                             type='primary'
                             onClick={() => {
-                                setOpenModal(true)
+                                setOpenModal(true);
                             }}
                         >
                             Add New
                         </Button>
-                    )
+                    );
                 }}
             />
 
@@ -318,6 +226,7 @@ const TimeSharePage = () => {
                 setDataInit={setDataInit}
             />
         </>
-    )
-}
+    );
+};
+
 export default TimeSharePage
