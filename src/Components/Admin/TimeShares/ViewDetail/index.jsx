@@ -45,20 +45,16 @@ const ViewDetailTimeShare = (props) => {
                     layout='vertical'
                 >
                     <Descriptions.Item label='Name'>
-                        {dataInit?.name}
+                        {dataInit?.timeshareName}
                     </Descriptions.Item>
                     {/*<Descriptions.Item label='Logo'>*/}
                     {/*    <Image width={100} height={100} src={dataInit?.logo ?? ''} />*/}
                     {/*</Descriptions.Item>*/}
-                    <Descriptions.Item label='Description'>{dataInit?.description}</Descriptions.Item>
                     <Descriptions.Item label='Status'>
-                        <Tag color={color}>{dataInit?.status}</Tag>
+                        <Tag color={color}>{dataInit?.timeshareStatus}</Tag>
                     </Descriptions.Item>
                     <Descriptions.Item label='Address'>
                         {dataInit && dataInit.address ? dataInit.address : ''}
-                    </Descriptions.Item>
-                    <Descriptions.Item label='Rooms'>
-                        {dataInit && dataInit.rooms ? dataInit.rooms : 0}
                     </Descriptions.Item>
                     <Descriptions.Item label='Place'>
                         {dataInit && dataInit.place ? dataInit.place : ''}
@@ -79,16 +75,6 @@ const ViewDetailTimeShare = (props) => {
                                 </div>
                             )
                         })}
-                    </Descriptions.Item>
-                    <Descriptions.Item label='Created At'>
-                        {dataInit && dataInit.createdAt
-                            ? dayjs(dataInit.createdAt).format('DD-MM-YYYY HH:mm:ss')
-                            : ''}
-                    </Descriptions.Item>
-                    <Descriptions.Item label='Updated At'>
-                        {dataInit && dataInit.updatedAt
-                            ? dayjs(dataInit.updatedAt).format('DD-MM-YYYY HH:mm:ss')
-                            : ''}
                     </Descriptions.Item>
                 </Descriptions>
             </Drawer>
