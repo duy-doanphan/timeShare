@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.14.1",
+    "antd-img-crop": "^4.21.0",
     "aos": "^2.3.4",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.2",

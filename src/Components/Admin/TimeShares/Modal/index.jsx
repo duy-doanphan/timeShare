@@ -7,10 +7,11 @@ import {
 import {Col, ConfigProvider, Form, message, notification, Row, Spin, Tooltip} from 'antd'
 import {isMobile} from 'react-device-detect'
 import {useEffect, useState} from "react";
-import {PlusOutlined} from "@ant-design/icons";
+import {CloseOutlined, PlusOutlined} from "@ant-design/icons";
 import {TiDelete} from "react-icons/ti";
 import vi_VN from 'antd/locale/vi_VN'
 import {Image} from "antd";
+import ImgCrop from 'antd-img-crop';
 
 const ModalTimeShare = (props) => {
     const {openModal, setOpenModal, reloadTable, dataInit, setDataInit} = props
@@ -25,6 +26,21 @@ const ModalTimeShare = (props) => {
 
 
     const [form] = Form.useForm()
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.addEventListener('load', () => {
+                const newImageList = [...imageList, reader.result];
+                setImageList(newImageList);
+            });
+
+            reader.readAsDataURL(file);
+        }
+    };
 
     const uploadButton = (
         <div
@@ -46,20 +62,22 @@ const ModalTimeShare = (props) => {
                 input.accept = 'image/*'
                 input.multiple = false
                 input.onchange = async (e) => {
-                    const file = e.target.files[0]
-                    if (file) {
-                        setIsLoading(true)
-                        // const res = await callUploadSingleFile(file)
-                        setIsLoading(false)
-                        const newImageList = [...imageList]
-                        newImageList.push(file)
-                        setImageList(newImageList)
-                        // if (res?.data) {
-                        //     const newImageList = [...imageList]
-                        //     newImageList.push(res.data)
-                        //     setImageList(newImageList)
-                        // }
-                    }
+                    handleFileChange(e)
+                    // const file = e.target.files[0]
+                    // if (file) {
+                    //     setIsLoading(true)
+                    //     // const res = await callUploadSingleFile(file)
+                    //     setIsLoading(false)
+                    //     const newImageList = [...imageList]
+                    //     newImageList.push(file)
+                    //     setImageList(newImageList)
+                    //
+                    //     // if (res?.data) {
+                    //     //     const newImageList = [...imageList]
+                    //     //     newImageList.push(res.data)
+                    //     //     setImageList(newImageList)
+                    //     // }
+                    // }
                 }
                 input.click()
             }}
@@ -134,8 +152,13 @@ const ModalTimeShare = (props) => {
     const handleReset = async () => {
         form.resetFields()
         form.setFieldsValue({})
+        setImageList([])
         setDataInit(null)
         setOpenModal(false)
+    }
+    const handleRemoveImage = (index) => {
+        const newImageList = imageList.filter((_, i) => i !== index);
+        setImageList(newImageList);
     }
 
     return (
@@ -148,7 +171,6 @@ const ModalTimeShare = (props) => {
                         handleReset()
                     },
                     afterClose: () => {
-                        console.log('afterClose')
                         handleReset()
                     },
                     destroyOnClose: true,
@@ -243,20 +265,39 @@ const ModalTimeShare = (props) => {
                         <p style={{marginBottom: '5px'}}>Images</p>
                         <div style={{display: "flex", gap: 5}}>
                             {imageList?.map((photo, index) => (
-                                <ConfigProvider locale={vi_VN}>
-                                    <Image
-                                        src={photo}
-                                        alt='image'
+                                <div key={index} style={{position: 'relative'}}>
+                                    <ConfigProvider locale={vi_VN}>
+                                        <Image
+                                            src={photo}
+                                            alt='image'
+                                            style={{
+                                                borderRadius: '5%',
+                                                width: '100px',
+                                                height: '100px',
+                                                objectFit: 'cover',
+                                            }}
+                                        />
+                                    </ConfigProvider>
+                                    <button
                                         style={{
-                                            borderRadius: '5%',
-                                            width: '100px',
-                                            height: '100px',
-                                            objectFit: 'cover',
+                                            position: 'absolute',
+                                            top: 0,
+                                            right: -5,
+                                            cursor: 'pointer',
+                                            background: 'transparent',
+                                            border: 'none',
                                         }}
-                                    />
-                                </ConfigProvider>
+                                        onClick={() => handleRemoveImage(index)}
+                                    >
+                                        <CloseOutlined style={{color: 'red'}}/>
+                                    </button>
+                                </div>
                             ))}
-                            {imageList.length < 5 && uploadButton}
+                            {imageList.length < 5 &&
+                                <ImgCrop>
+                                    {uploadButton}
+                                </ImgCrop>
+                            }
                         </div>
                     </Col>
                 </Row>
